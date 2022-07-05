@@ -28,9 +28,15 @@ class CountryController extends Controller
 
         //many to many 
         
-        $countries = Country::all();
-        $user = User::with('countries')->first();
-        $user->countries()->attach($countries);
+        // $countries = Country::all();
+        // $user = User::with('countries')->first();
+        // $user->countries()->attach($countries);
+        // //dd($user);
+        // return Response::json($user);
+
+        $countries = User::all();
+        $user = Country::with('users')->first();
+        $user->users()->attach($countries);
         //dd($user);
         return Response::json($user);
      
