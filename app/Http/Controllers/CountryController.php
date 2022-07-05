@@ -34,11 +34,12 @@ class CountryController extends Controller
         // //dd($user);
         // return Response::json($user);
 
-        $countries = User::all();
-        $user = Country::with('users')->first();
-        $user->users()->attach($countries);
-        //dd($user);
-        return Response::json($user);
+        $countries = User::withCount('countries')->get();
+        //dd($countries);
+        // $user = Country::withCount('users')->first();
+        // $user->users()->attach($countries);
+        // //dd($user);
+        return Response::json($countries);
      
 
 
