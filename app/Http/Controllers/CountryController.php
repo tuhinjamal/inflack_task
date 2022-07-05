@@ -33,8 +33,12 @@ class CountryController extends Controller
         // $user->countries()->attach($countries);
         // //dd($user);
         // return Response::json($user);
+        
+        $countries = User::with('countries')->withCount('countries')->paginate(15);
+        
+        
 
-        $countries = User::withCount('countries')->get();
+
         //dd($countries);
         // $user = Country::withCount('users')->first();
         // $user->users()->attach($countries);
