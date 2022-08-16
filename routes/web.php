@@ -70,12 +70,25 @@ use App\Models\Country;
   });
 
 
+
+
   Route::get('/', function () {
  
     $posts = Post::with('categories')->withCount('categories')->get();
     return $posts;
     // return view('manyToMany',compact('posts'));
  });
+
+
+
+ Route::get('/makeRelation', function () {
+ 
+  $posts = Post::find(10);
+  $roleIds = [1, 2,5,9];
+
+  $posts->categories()->attach($roleIds);
+  // return view('manyToMany',compact('posts'));
+});
 
 //  Route::get('/has_one_through', function () {
 //     $mechanics = Mechanic::with('carOwner')->get();
