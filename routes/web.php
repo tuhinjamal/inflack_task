@@ -83,8 +83,8 @@ use App\Models\Country;
 
  Route::get('/makeRelation', function () {
  
-  $posts = Post::find(10);
-  $roleIds = [1, 2,5,9];
+  $posts = Post::find(4);
+  $roleIds = [1, 2,3,9,4];
 
   $posts->categories()->attach($roleIds);
   // return view('manyToMany',compact('posts'));
