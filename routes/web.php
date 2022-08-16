@@ -65,8 +65,8 @@ use App\Models\Country;
 
     $categories =  Category::with('posts')->withCount('posts')->get();
   
-     //return $categories;
-      return view('inverse_manyToMany',compact('categories'));
+     return $categories;
+      //return view('inverse_manyToMany',compact('categories'));
   });
 
 
